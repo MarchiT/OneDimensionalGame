@@ -1,0 +1,25 @@
+#############################################
+# Syntax Coloring Map For OneDimentionalGame
+#############################################
+
+#############################################
+# Datatypes (KEYWORD1)
+#############################################
+
+tryIt KEYWORD1
+
+#############################################
+# Methods and Functions (KEYWORD2)
+#############################################
+
+run		KEYWORD2
+init		KEYWORD2
+refreshScreen	KEYWORD2
+cast_field	KEYWORD2
+upload_colors	KEYWORD2
+move_player	KEYWORD2
+
+#############################################
+# Constants (LITERAL1)
+#############################################
+
