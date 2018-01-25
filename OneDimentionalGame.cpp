@@ -29,9 +29,9 @@ void OneDimentionalGame::refreshScreen() {
 }
 
 void OneDimentionalGame::blink_player() {
-	if ((blink_time + blink_speed) < millis()) {
-		blink_time = millis();
-		player_type = (player_type == 'P') ? 'p' : 'P';
+	if ((player.blink_time + player.blink_speed) < millis()) {
+		player.blink_time = millis();
+		player.type = (player.type == 'P') ? 'p' : 'P';
 	}
 }
 
@@ -46,10 +46,10 @@ void OneDimentionalGame::cast_field() {
 		case 'E': colored[i] = BLUE; break;
 		default: colored[i] = OFF; break;
 		}
-		if (player_type == 'P')
-			colored[player_index] = WHITE;
+		if (player.type == 'P')
+			colored[player.index] = WHITE;
 		else
-			colored[player_index] = PLAYER;
+			colored[player.index] = PLAYER;
 	}
 }
 
@@ -66,12 +66,12 @@ void OneDimentionalGame::position_player(char direction) {
 	switch (direction)
 	{
 	case 'U':
-		if (player_index < NUM_LEDS)
-			player_index++;
+		if (player.index < NUM_LEDS)
+			player.index++;
 		break;
 	case 'D':
-		if (player_index > 0)
-			player_index--;
+		if (player.index > 0)
+			player.index--;
 		break;
 	default:
 		break;

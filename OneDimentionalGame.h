@@ -8,13 +8,13 @@
 #include "colors.h"
 #include "constants.h"
 
+#include "Player.h"
 
 class OneDimentionalGame {
 private:
 	Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 
-	int player_index = 0;
-	int player_type = 'P';
+	Player player;
 
 	char field[NUM_LEDS] = { 0, 0, 0, 'L', 'L', 'L', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -25,9 +25,6 @@ private:
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 'E' };
 	uint32_t colored[NUM_LEDS];
-
-	unsigned long blink_time = 0;
-	char blink_speed = 50;
 
 public:
 	OneDimentionalGame();
