@@ -1,6 +1,8 @@
 #include "OneDimentionalGame.h"
 
 OneDimentionalGame::OneDimentionalGame() {
+	add_level(10);
+
 	init();
 }
 
@@ -37,25 +39,25 @@ void OneDimentionalGame::blink_player() {
 
 void OneDimentionalGame::cast_field() {
 	for (int i = 0; i < NUM_LEDS; i++) {
-		switch (field[i]) {
-		case 'L': colored[i] = RED; break;
-		case 'l': colored[i] = GREEN; break;
-		case 'Y': colored[i] = YELLOW; break;
-		case 'P': colored[i] = PINK; break;
-		case 'M': colored[i] = MAGENTA; break;
-		case 'E': colored[i] = BLUE; break;
-		default: colored[i] = OFF; break;
+		switch (level.field[i]) {
+		case 'L': level.filled[i] = RED; break;
+		case 'l': level.filled[i] = GREEN; break;
+		case 'Y': level.filled[i] = YELLOW; break;
+		case 'P': level.filled[i] = PINK; break;
+		case 'M': level.filled[i] = MAGENTA; break;
+		case 'E': level.filled[i] = BLUE; break;
+		default: level.filled[i] = OFF; break;
 		}
 		if (player.type == 'P')
-			colored[player.index] = WHITE;
+			level.filled[player.index] = WHITE;
 		else
-			colored[player.index] = PLAYER;
+			level.filled[player.index] = PLAYER;
 	}
 }
 
 void OneDimentionalGame::upload_colors() {
 	for (int i = 0; i < NUM_LEDS; i++) {
-		uint32_t color = colored[i];
+		uint32_t color = level.filled[i];
 		strip.setPixelColor(i, color);
 	}
 	strip.show();
@@ -66,7 +68,7 @@ void OneDimentionalGame::position_player(char direction) {
 	switch (direction)
 	{
 	case 'U':
-		if (player.index < NUM_LEDS)
+		if (player.index < (level.end-1))
 			player.index++;
 		break;
 	case 'D':
@@ -89,4 +91,21 @@ void OneDimentionalGame::move_player() {
 	if (Serial.available()) {
 		Serial2.write(Serial.read());
 	}
+}
+
+void OneDimentionalGame::add_level(int end, char * field) {
+
+	char new_field[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0 };
+
+	if (field != NULL)
+		level.changeField(field, end);
+	else
+		level.changeField(new_field, end);
 }
