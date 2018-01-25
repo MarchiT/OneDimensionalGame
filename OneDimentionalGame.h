@@ -4,6 +4,7 @@
 #endif
 
 #include <stdint.h>
+#include <vector>
 
 #include "colors.h"
 #include "constants.h"
@@ -17,7 +18,8 @@ private:
 
 	Player player;
 
-	Level level;
+	std::vector<Level> levels;
+	int level_index = 0;
 
 public:
 	OneDimentionalGame();
@@ -25,6 +27,8 @@ public:
 	void init();
 
 	void run();
+
+	bool final();
 
 	void refreshScreen();
 	void cast_field();

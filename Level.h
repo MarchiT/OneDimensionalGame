@@ -25,11 +25,12 @@ public:
 
 	Level();
 
-	void changeEnd(int new_end = NUM_LEDS);
-	void changeField(char* new_field, int new_end = NUM_LEDS);
+	static Level new_level(char* new_field, int new_end = NUM_LEDS);
+	
+	void init(char* new_field, int new_end = NUM_LEDS);
 
-	int getEnd();
-	char* getField();
+	void set_end(int new_end = NUM_LEDS);
+	void set_field(char* new_field);
 };
 
 #endif //LEVEL_H_
