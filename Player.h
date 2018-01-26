@@ -10,7 +10,9 @@ public:
 	unsigned long blink_time;
 	char blink_speed;
 
-	Player();
+	Player()
+		: index(0), type('P'), blink_time(0), blink_speed(50)
+	{}
 };
 
 #endif //PLAYER_H_

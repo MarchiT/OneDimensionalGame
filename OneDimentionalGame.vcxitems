@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding ="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <PropertyGroup Label="Globals" >
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{a38b94c8-eba4-413b-9a6c-e52aa4d6cbb4}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Level.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)OneDimentionalGame.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)colors.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)constants.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)DefaultStory.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)Enemy.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)Level.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)OneDimentionalGame.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)PassiveEnemy.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)Player.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)Prop.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="$(MSBuildThisFileDirectory)keywords.txt" />
+<Text Include="$(MSBuildThisFileDirectory)library.properties" />
+<Text Include="$(MSBuildThisFileDirectory)vs-readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)README.md" />
+  </ItemGroup>
+</Project>

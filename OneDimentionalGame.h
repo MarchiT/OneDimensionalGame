@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "Level.h"
 
+
 class OneDimentionalGame {
 private:
 	Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
@@ -24,9 +25,14 @@ private:
 public:
 	OneDimentionalGame();
 
-	void init();
-
 	void run();
+	
+	void add_level(int end = NUM_LEDS, const char* field = NULL);
+
+	void add_props(int lvl, int start_index, char* scheme);
+	
+private:
+	void init();
 
 	bool final();
 
@@ -38,5 +44,4 @@ public:
 	void position_player(char direction);
 	void move_player();
 
-	void add_level(int end = NUM_LEDS, char* field = NULL);
 };
