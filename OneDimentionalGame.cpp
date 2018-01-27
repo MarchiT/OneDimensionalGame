@@ -1,7 +1,7 @@
 #include "OneDimentionalGame.h"
 
 //levels, because for some reason DefaultStory is not found: "undefined reference to ''"
-char FIELD_DEFAULT[NUM_LEDS] = { 0, 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+char MAP_DEFAULT[NUM_LEDS] = { 0, 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -10,7 +10,7 @@ char FIELD_DEFAULT[NUM_LEDS] = { 0, 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0 };
 
-char FIELD1[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+char MAP1[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -19,7 +19,7 @@ char FIELD1[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0 };
 
-char FIELD2[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 'M', 0, 0, 0, 'M', 'L', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+char MAP2[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 'M', 0, 0, 0, 'M', 'B', 'M', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -28,16 +28,22 @@ char FIELD2[NUM_LEDS] = { 0, 0, 0, 'M', 'M', 'M', 0, 0, 0, 'M', 'L', 'M', 0, 0, 
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0 };
 
-char SCHEME_BASIC_ENEMY[3] = { 'l', 'l', 'l' };
+char SCHEME_BASIC_COLOR_PROP[3] = { 'l', 'l', 'l' };
+char SCHEME_MAP_COLOR_PROP[3] = { 'M', 'M', 'M' };
 //end_of_default_story
 
-OneDimentionalGame::OneDimentionalGame() {
-	add_level(5);
-	add_level(11, FIELD1);
-	add_level(20, FIELD2);
 
-	add_props(1, 6, SCHEME_BASIC_ENEMY);
-	add_props(2, 14, SCHEME_BASIC_ENEMY);
+OneDimentionalGame::OneDimentionalGame() {
+	if (default_story) {
+		add_level(7); //size
+		add_props(0, 3, 3); //level, size, location
+
+		add_level(11, MAP1);
+		add_props(1, 2, 8);
+
+		add_level(20, MAP2);
+		add_props(2, 4, 15);
+	}
 
 	init();
 }
@@ -53,9 +59,6 @@ void OneDimentionalGame::init() {
 }
 
 void OneDimentionalGame::run() {
-	Serial.print("level index: "); Serial.println(level_index);
-	Serial.print("levels size: "); Serial.println(levels.size());
-	Serial.print("level end: "); Serial.println(levels[level_index].end);
 
 	if (levels[level_index].collided(player.index)) {
 		player.index = 0;
@@ -79,13 +82,13 @@ void OneDimentionalGame::run() {
 }
 
 bool OneDimentionalGame::final() {
-	return levels[level_index].field[player.index] == 'E';
+	return levels[level_index].map[player.index] == 'E';
 }
 
 void OneDimentionalGame::refreshScreen() {
-	blink_player();
+	if (on) blink_player();
 
-	cast_field();
+	cast_map_to_field();
 	upload_colors();
 }
 
@@ -96,28 +99,28 @@ void OneDimentionalGame::blink_player() {
 	}
 }
 
-void OneDimentionalGame::cast_field() {
+void OneDimentionalGame::cast_map_to_field() {
 	for (int i = 0; i < NUM_LEDS; i++) {
-		switch (levels[level_index].field[i]) {
-		case 'L': levels[level_index].filled[i] = RED; break;
-		case 'l': levels[level_index].filled[i] = GREEN; break;
-		case 'Y': levels[level_index].filled[i] = YELLOW; break;
-		case 'P': levels[level_index].filled[i] = PINK; break;
-		case 'M': levels[level_index].filled[i] = MAGENTA; break;
-		case 'E': levels[level_index].filled[i] = BLUE; break;
-		case 'R': levels[level_index].filled[i] = strip.Color(255, 0, 0); break;
-		default: levels[level_index].filled[i] = OFF; break;
+		switch (levels[level_index].map[i]) {
+		case 'R': levels[level_index].field[i] = RED; break;
+		case 'G': levels[level_index].field[i] = GREEN; break;
+		case 'B': levels[level_index].field[i] = BLUE; break;
+
+		case 'l': levels[level_index].field[i] = RED; break;
+		case 'E': levels[level_index].field[i] = GREEN; break;
+		case 'M': levels[level_index].field[i] = PURPLE; break;
+		default: levels[level_index].field[i] = OFF; break;
 		}
 		if (player.type == 'P')
-			levels[level_index].filled[player.index] = WHITE;
+			levels[level_index].field[player.index] = WHITE;
 		else
-			levels[level_index].filled[player.index] = PLAYER;
+			levels[level_index].field[player.index] = strip.Color(193, 242, 210); //decide whether to use constants or this
 	}
 }
 
 void OneDimentionalGame::upload_colors() {
 	for (int i = 0; i < NUM_LEDS; i++) {
-		uint32_t color = levels[level_index].filled[i];
+		uint32_t color = levels[level_index].field[i];
 		strip.setPixelColor(i, color);
 	}
 	strip.show();
@@ -134,6 +137,17 @@ void OneDimentionalGame::position_player(char direction) {
 	case 'D':
 		if (player.index > 0)
 			player.index--;
+		break;
+	case 'R':
+		if (player.index < (levels[level_index].end - 1))
+			player.index++;
+		break;
+	case 'L':
+		if (player.index > 0)
+			player.index--;
+		break;
+	case 'Z':
+		on = !on;
 		break;
 	default:
 		break;
@@ -153,13 +167,30 @@ void OneDimentionalGame::move_player() {
 	}
 }
 
-void OneDimentionalGame::add_level(int end, const char * field) {
-	if (field != NULL)
-		levels.push_back(Level::new_level(field, end));
+void OneDimentionalGame::add_level(int end, const char * map) {
+	if (map != NULL)
+		levels.push_back(Level::new_level(map, end));
 	else
-		levels.push_back(Level::new_level(FIELD_DEFAULT, end));
+		levels.push_back(Level::new_level(MAP_DEFAULT, end));
 }
 
-void OneDimentionalGame::add_props(int lvl, int start_index, char * scheme) {
-	levels[lvl].props.push_back(new PassiveEnemy(start_index, scheme, levels[lvl].field));
+
+void OneDimentionalGame::add_props(int lvl, int size, int location) {
+	
+	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
+	
+	p->add_scheme('B', 140, false);
+	p->add_scheme('l', 70, true);
+	
+
+	levels[lvl].props.push_back(p);
+}
+
+
+void OneDimentionalGame::create_own_story() {
+	default_story = false;
+}
+
+void OneDimentionalGame::create_default_story() {
+	default_story = true;
 }

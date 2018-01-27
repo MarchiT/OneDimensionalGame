@@ -5,8 +5,8 @@
 
 class Enemy : public Prop {
 public:
-	Enemy(int start_index, char* scheme, char* field, int hitbox_start, int hitbox_end)
-		: Prop(start_index, scheme, field, hitbox_start, hitbox_end)
+	Enemy(int location, int size, char* map)
+		: Prop(location, size, map)
 	{}
 
 };

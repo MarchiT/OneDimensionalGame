@@ -3,12 +3,12 @@
 Level::Level() {
 }
 
-Level Level::new_level(const char * new_field, int new_end)
+Level Level::new_level(const char * new_map, int new_end)
 {
-	//for now, new_field must be NUM_LEDS 
+	//for now, new_map must be NUM_LEDS 
 	char* f = new char[NUM_LEDS];
 	for (int i = 0; i < NUM_LEDS; i++) {
-		f[i] = new_field[i];
+		f[i] = new_map[i];
 	}
 
 	Level l;
@@ -18,15 +18,15 @@ Level Level::new_level(const char * new_field, int new_end)
 
 void Level::set_end(int new_end) {
 	end = new_end;
-	field[new_end - 1] = 'E';
+	map[new_end - 1] = 'E';
 }
 
-void Level::set_field(char* new_field) {
-	field = new_field;
+void Level::set_map(char* new_map) {
+	map = new_map;
 }
 
-void Level::init(char* new_field, int new_end) {
-	set_field(new_field);
+void Level::init(char* new_map, int new_end) {
+	set_map(new_map);
 	set_end(new_end);
 }
 
@@ -45,5 +45,5 @@ void Level::draw_props() {
 		p->draw();
 	}
 
-	field[end - 1] = 'E'; //why don't you draw the end before this
+	map[end - 1] = 'E'; //why don't you draw the end before this
 }
