@@ -5,9 +5,9 @@
 
 #include <vector>
 
-#include "colors.h"
-#include "constants.h"
-#include "game_options.h"
+#include "constants\specifications.h"
+#include "constants\game_options.h"
+#include "constants\colors.h"
 
 #include "Player.h"
 #include "Level.h"
