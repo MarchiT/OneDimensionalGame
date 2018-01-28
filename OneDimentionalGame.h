@@ -7,13 +7,14 @@
 
 #include "colors.h"
 #include "constants.h"
+#include "game_options.h"
 
 #include "Player.h"
 #include "Level.h"
-
 #include "Prop.h"
 
-#include "Animations.h"
+#include "StandartStory.h"
+
 
 class OneDimentionalGame {
 private:
@@ -25,19 +26,15 @@ private:
 	int level_index = 0;
 
 	bool on = true;
-	bool default_story = false;
 
 public:
-	OneDimentionalGame();
+	OneDimentionalGame(int story_type = 0);
 
 	void run();
 	
 	void add_level(int end = NUM_LEDS, const char* map = NULL);
 
 	void add_props(int lvl, int size, int location);
-	
-	void create_own_story();
-	void create_default_story();
 
 private:
 	void init();
@@ -51,4 +48,6 @@ private:
 	
 	void position_player(char direction);
 	void move_player();
+
+	void create_standart_story();
 };
