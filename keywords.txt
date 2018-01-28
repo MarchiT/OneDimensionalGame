@@ -13,14 +13,16 @@ OneDimentionalGame KEYWORD1
 #############################################
 
 run			KEYWORD2
-create_own_story	KEYWORD2
-create_default_story	KEYWORD2
 add_level		KEYWORD2
 add_props		KEYWORD2
 
 #############################################
 # Constants (LITERAL1)
 #############################################
+DEFAULT 	LITERAL1
+CUSTOM 		LITERAL1
+MULTIPLAYER 	LITERAL1
+CHALLENGING 	LITERAL1
 
 NUM_LEDS	LITERAL1
 BRIGHTNESS	LITERAL1
