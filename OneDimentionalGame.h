@@ -12,9 +12,9 @@
 #include "Player.h"
 #include "Level.h"
 #include "Prop.h"
+#include "PassiveEnemy.h"
 
 #include "StandartStory.h"
-
 
 class OneDimentionalGame {
 private:

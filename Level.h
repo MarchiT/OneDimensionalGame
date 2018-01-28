@@ -7,7 +7,6 @@
 #include "constants\specifications.h"
 
 #include "Prop.h"
-#include "PassiveEnemy.h"
 
 class Level {
 
