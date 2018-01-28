@@ -6,20 +6,22 @@
 # Datatypes (KEYWORD1)
 #############################################
 
-tryIt KEYWORD1
+OneDimentionalGame KEYWORD1
 
 #############################################
 # Methods and Functions (KEYWORD2)
 #############################################
 
-run		KEYWORD2
-init		KEYWORD2
-refreshScreen	KEYWORD2
-cast_field	KEYWORD2
-upload_colors	KEYWORD2
-move_player	KEYWORD2
+run			KEYWORD2
+create_own_story	KEYWORD2
+create_default_story	KEYWORD2
+add_level		KEYWORD2
+add_props		KEYWORD2
 
 #############################################
 # Constants (LITERAL1)
 #############################################
 
+NUM_LEDS	LITERAL1
+BRIGHTNESS	LITERAL1
+PIN		LITERAL1
