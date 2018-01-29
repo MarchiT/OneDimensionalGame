@@ -62,7 +62,7 @@ bool OneDimentionalGame::final() {
 void OneDimentionalGame::refreshScreen() {
 	if (on) blink_player();
 
-	cast_map_to_field();
+	levels[level_index].cast_map_to_field(player);
 	upload_colors();
 }
 
@@ -70,25 +70,6 @@ void OneDimentionalGame::blink_player() {
 	if ((player.blink_time + player.blink_speed) < millis()) {
 		player.blink_time = millis();
 		player.type = (player.type == 'P') ? 'p' : 'P';
-	}
-}
-
-void OneDimentionalGame::cast_map_to_field() {
-	for (int i = 0; i < NUM_LEDS; i++) {
-		switch (levels[level_index].map[i]) {
-		case 'R': levels[level_index].field[i] = RED; break;
-		case 'G': levels[level_index].field[i] = GREEN; break;
-		case 'B': levels[level_index].field[i] = BLUE; break;
-
-		case 'l': levels[level_index].field[i] = RED; break;
-		case 'E': levels[level_index].field[i] = GREEN; break;
-		case 'M': levels[level_index].field[i] = PURPLE; break;
-		default: levels[level_index].field[i] = OFF; break;
-		}
-		if (player.type == 'P')
-			levels[level_index].field[player.index] = WHITE;
-		else
-			levels[level_index].field[player.index] = strip.Color(193, 242, 210); //decide whether to use constants or this
 	}
 }
 

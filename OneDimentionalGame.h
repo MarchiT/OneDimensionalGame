@@ -7,7 +7,6 @@
 
 #include "constants\specifications.h"
 #include "constants\game_options.h"
-#include "constants\colors.h"
 
 #include "Player.h"
 #include "Level.h"
@@ -42,7 +41,6 @@ private:
 	bool final();
 
 	void refreshScreen();
-	void cast_map_to_field();
 	void upload_colors();
 	void blink_player();
 	

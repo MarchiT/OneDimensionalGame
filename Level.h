@@ -5,10 +5,13 @@
 #include <vector>
 
 #include "constants\specifications.h"
+#include "constants\colors.h"
 
 #include "Prop.h"
+#include "Player.h"
 
 class Level {
+	Level();
 
 public:
 	int end = NUM_LEDS;
@@ -18,9 +21,10 @@ public:
 	
 	std::vector<Prop*> props;
 	
-	Level();
 
 	static Level new_level(const char* new_map, int new_end = NUM_LEDS);
+	
+	void cast_map_to_field(Player player);
 	
 	bool collided(int player_index);
 
