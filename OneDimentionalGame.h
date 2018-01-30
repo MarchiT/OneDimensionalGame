@@ -27,7 +27,7 @@ private:
 	bool on = true;
 
 public:
-	OneDimentionalGame(int story_type = 0);
+	OneDimentionalGame(int story_type = DEFAULT);
 
 	void run();
 	
