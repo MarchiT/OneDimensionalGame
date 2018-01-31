@@ -17,6 +17,9 @@ struct Scheme {
 class Prop {
 private:
 	Scheme create_scheme(char design, int frequency, bool dangerous);
+	
+	void init_default_hitbox();
+
 public:
 	int state = 0;
 	int index = 0;
@@ -35,9 +38,6 @@ public:
 	void add_scheme(char design, int frequency, bool dangerous);
 
 	bool within_hitbox(int player_index);
-
-	void init_default_hitbox();
-
 
 	virtual void draw() = 0;
 
