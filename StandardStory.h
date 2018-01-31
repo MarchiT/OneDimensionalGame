@@ -1,9 +1,9 @@
-#ifndef STANDART_STORY_H_
-#define STANDART_STORY_H_
+#ifndef STANDARD_STORY_H_
+#define STANDARD_STORY_H_
 
 #include"constants\specifications.h"
 
-struct StandartStory
+struct StandardStory
 {
 
 	static char MAP_DEFAULT[NUM_LEDS];
@@ -16,4 +16,4 @@ struct StandartStory
 };
 
 
-#endif //STANDART_STORY_H_
+#endif //STANDARD_STORY_H_

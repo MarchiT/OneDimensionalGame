@@ -13,7 +13,7 @@
 #include "Prop.h"
 #include "PassiveEnemy.h"
 
-#include "StandartStory.h"
+#include "StandardStory.h"
 
 class OneDimentionalGame {
 private:
@@ -47,5 +47,5 @@ private:
 	void position_player(char direction);
 	void move_player();
 
-	void create_standart_story();
+	void create_standard_story();
 };

@@ -2,10 +2,10 @@
 
 OneDimentionalGame::OneDimentionalGame(int story_type) {
 	switch (story_type) {
-	case 0: create_standart_story(); break;
+	case 0: create_standard_story(); break;
 	case 1: break;
 
-	default: create_standart_story(); break;
+	default: create_standard_story(); break;
 	}
 
 	init();
@@ -21,14 +21,14 @@ void OneDimentionalGame::init() {
 	strip.show();
 }
 
-void OneDimentionalGame::create_standart_story() {
+void OneDimentionalGame::create_standard_story() {
 	add_level(7); //size
 	add_props(0, 3, 3); //level, size, location
 
-	add_level(11, StandartStory::MAP1);
+	add_level(11, StandardStory::MAP1);
 	add_props(1, 2, 8);
 
-	add_level(20, StandartStory::MAP2);
+	add_level(20, StandardStory::MAP2);
 	add_props(2, 4, 15);
 }
 
@@ -126,7 +126,7 @@ void OneDimentionalGame::add_level(int end, const char * map) {
 	if (map != NULL)
 		levels.push_back(Level::new_level(map, end));
 	else
-		levels.push_back(Level::new_level(StandartStory::MAP_DEFAULT, end));
+		levels.push_back(Level::new_level(StandardStory::MAP_DEFAULT, end));
 }
 
 
