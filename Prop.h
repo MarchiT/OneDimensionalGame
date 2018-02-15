@@ -21,6 +21,16 @@ private:
 	void init_default_hitbox();
 
 public:
+
+	Prop(int location, int size, char* map);
+	
+	void add_scheme(char design, int frequency, bool dangerous);
+	
+	virtual void draw() = 0;
+
+	virtual bool collision(int player_index) = 0;
+
+protected:	
 	int state = 0;
 	int index = 0;
 	
@@ -33,16 +43,7 @@ public:
 	std::vector<Scheme> schemes;
 
 
-	Prop(int location, int size, char* map);
-
-	void add_scheme(char design, int frequency, bool dangerous);
-
 	bool within_hitbox(int player_index);
-
-	virtual void draw() = 0;
-
-	virtual bool collision(int player_index) = 0;
-
 };
 
 #endif //PROP_H_
