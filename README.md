@@ -1,2 +1,2 @@
-# OneDimentionalGame
-Library for the one dimentional game engine
+# OneDimensionalGame
+Library for the one dimensional game engine

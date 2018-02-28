@@ -1,4 +1,4 @@
-#include <OneDimentionalGame.h>
+#include <OneDimensionalGame.h>
 
 char level1_map[NUM_LEDS] = { 0, 0, 0, 0, 'B', 'B', 'B', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -9,7 +9,7 @@ char level1_map[NUM_LEDS] = { 0, 0, 0, 0, 'B', 'B', 'B', 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 0, 0, 0, 0, 0, 0, 0, 0 };
 
-OneDimentionalGame game(CUSTOM);
+OneDimensionalGame game(CUSTOM);
 
 void setup() {
 	Serial.begin(115200);

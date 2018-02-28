@@ -1,6 +1,6 @@
-#include "OneDimentionalGame.h"
+#include "OneDimensionalGame.h"
 
-OneDimentionalGame::OneDimentionalGame(int story_type) {
+OneDimensionalGame::OneDimensionalGame(int story_type) {
 	switch (story_type) {
 	case 0: create_standard_story(); break;
 	case 1: break;
@@ -11,7 +11,7 @@ OneDimentionalGame::OneDimentionalGame(int story_type) {
 	init();
 }
 
-void OneDimentionalGame::init() {
+void OneDimensionalGame::init() {
 	#if defined (__AVR_ATtiny85__)
 		if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 	#endif
@@ -21,7 +21,7 @@ void OneDimentionalGame::init() {
 	strip.show();
 }
 
-void OneDimentionalGame::create_standard_story() {
+void OneDimensionalGame::create_standard_story() {
 	add_level(7); //size
 	add_props(0, 3, 3); //level, size, location
 
@@ -32,7 +32,7 @@ void OneDimentionalGame::create_standard_story() {
 	add_props(2, 4, 15);
 }
 
-void OneDimentionalGame::run() {
+void OneDimensionalGame::run() {
 
 	if (levels[level_index].collided(player.index)) {
 		player.index = 0;
@@ -55,25 +55,25 @@ void OneDimentionalGame::run() {
 	refreshScreen();
 }
 
-bool OneDimentionalGame::final() {
+bool OneDimensionalGame::final() {
 	return levels[level_index].map[player.index] == 'E';
 }
 
-void OneDimentionalGame::refreshScreen() {
+void OneDimensionalGame::refreshScreen() {
 	if (on) blink_player();
 
 	levels[level_index].cast_map_to_field(player);
 	upload_colors();
 }
 
-void OneDimentionalGame::blink_player() {
+void OneDimensionalGame::blink_player() {
 	if ((player.blink_time + player.blink_speed) < millis()) {
 		player.blink_time = millis();
 		player.type = (player.type == 'P') ? 'p' : 'P';
 	}
 }
 
-void OneDimentionalGame::upload_colors() {
+void OneDimensionalGame::upload_colors() {
 	for (int i = 0; i < NUM_LEDS; i++) {
 		uint32_t color = levels[level_index].field[i];
 		strip.setPixelColor(i, color);
@@ -82,7 +82,7 @@ void OneDimentionalGame::upload_colors() {
 }
 
 
-void OneDimentionalGame::position_player(char direction) {
+void OneDimensionalGame::position_player(char direction) {
 	switch (direction)
 	{
 	case 'U':
@@ -109,7 +109,7 @@ void OneDimentionalGame::position_player(char direction) {
 	}
 }
 
-void OneDimentionalGame::move_player() {
+void OneDimensionalGame::move_player() {
 	if (Serial2.available()) {
 		char direction = Serial2.read();
 		Serial.write(direction);
@@ -122,7 +122,7 @@ void OneDimentionalGame::move_player() {
 	}
 }
 
-void OneDimentionalGame::add_level(int end, const char * map) {
+void OneDimensionalGame::add_level(int end, const char * map) {
 	if (map != NULL)
 		levels.push_back(Level::new_level(map, end));
 	else
@@ -130,7 +130,7 @@ void OneDimentionalGame::add_level(int end, const char * map) {
 }
 
 
-void OneDimentionalGame::add_props(int lvl, int size, int location) {
+void OneDimensionalGame::add_props(int lvl, int size, int location) {
 	
 	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
 	

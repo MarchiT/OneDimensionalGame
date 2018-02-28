@@ -1,6 +1,6 @@
-#include <OneDimentionalGame.h>
+#include <OneDimensionalGame.h>
 
-OneDimentionalGame game;
+OneDimensionalGame game;
 
 void setup() {
   Serial.begin(115200);

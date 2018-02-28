@@ -15,7 +15,7 @@
 
 #include "StandardStory.h"
 
-class OneDimentionalGame {
+class OneDimensionalGame {
 private:
 	Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 
@@ -27,7 +27,7 @@ private:
 	bool on = true;
 
 public:
-	OneDimentionalGame(int story_type = DEFAULT);
+	OneDimensionalGame(int story_type = DEFAULT);
 
 	void run();
 	
