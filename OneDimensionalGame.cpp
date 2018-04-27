@@ -21,17 +21,6 @@ void OneDimensionalGame::init() {
 	strip.show();
 }
 
-void OneDimensionalGame::create_standard_story() {
-	add_level(7); //size
-	add_props(0, 3, 3); //level, size, location
-
-	add_level(11, StandardStory::MAP1);
-	add_props(1, 2, 8);
-
-	add_level(20, StandardStory::MAP2);
-	add_props(2, 4, 15);
-}
-
 void OneDimensionalGame::run() {
 
 	if (levels[level_index].collided(player.index)) {
@@ -81,7 +70,7 @@ void OneDimensionalGame::upload_colors() {
 	strip.show();
 }
 
-
+//add more chars for direction - pickup, pause, etc.
 void OneDimensionalGame::position_player(char direction) {
 	switch (direction)
 	{
@@ -122,6 +111,18 @@ void OneDimensionalGame::move_player() {
 	}
 }
 
+// void OneDimensionalGame::move_player_hardware() {
+// 	char input[8];
+// 	Serial3.readBytes(input, 8); //LEUP pp 
+
+// 	Serial.print("INPUT: ");
+// 	Serial.println(input);
+
+// 	//parse input if joystick is used
+
+// 	position_player(input[0]);
+// }
+
 void OneDimensionalGame::add_level(int end, const char * map) {
 	if (map != NULL)
 		levels.push_back(Level::new_level(map, end));
@@ -134,9 +135,14 @@ void OneDimensionalGame::add_props(int lvl, int size, int location) {
 	
 	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
 	
-	p->add_scheme('B', 140, false);
-	p->add_scheme('l', 70, true);
-	
+	p->add_scheme('b', 70, false);
+	p->add_scheme('B', 70, true);
 
 	levels[lvl].props.push_back(p);
+}
+
+PassiveEnemy* OneDimensionalGame::add_prop(int lvl, int size, int location) {
+	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
+	levels[lvl].props.push_back(p);
+	return p;
 }

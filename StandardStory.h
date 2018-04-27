@@ -1,7 +1,7 @@
 #ifndef STANDARD_STORY_H_
 #define STANDARD_STORY_H_
 
-#include"constants\specifications.h"
+#include"constants/specifications.h"
 
 struct StandardStory
 {

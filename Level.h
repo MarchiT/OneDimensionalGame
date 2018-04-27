@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include <vector>
 
-#include "constants\specifications.h"
-#include "constants\colors.h"
+#include "constants/specifications.h"
+#include "constants/colors.h"
 
 #include "Prop.h"
 #include "Player.h"

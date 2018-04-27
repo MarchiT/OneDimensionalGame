@@ -5,8 +5,8 @@
 
 #include <vector>
 
-#include "constants\specifications.h"
-#include "constants\game_options.h"
+#include "constants/specifications.h"
+#include "constants/game_options.h"
 
 #include "Player.h"
 #include "Level.h"
@@ -34,6 +34,7 @@ public:
 	void add_level(int end = NUM_LEDS, const char* map = NULL);
 
 	void add_props(int lvl, int size, int location);
+	PassiveEnemy* add_prop(int lvl, int size, int location);
 
 private:
 	void init();

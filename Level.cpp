@@ -37,15 +37,26 @@ void Level::cast_map_to_field(Player player) {
 		case 'G': field[i] = GREEN; break;
 		case 'B': field[i] = BLUE; break;
 
-		case 'l': field[i] = RED; break;
 		case 'E': field[i] = GREEN; break;
+
+		case 'a': field[i] = STUFFLED_GREEN; break;
+		case 'b': field[i] = PASTEL_ORANGE; break;
+		case 'c': field[i] = PASTEL_RED; break;
+		case 'd': field[i] = EH_BLUE; break;
+		case 'g': field[i] = CYAN; break;
+		case 'e': field[i] = EH_GREEN; break;
+
 		case 'M': field[i] = PURPLE; break;
+		case 'f': field[i] = MIDNIGHT_BLUE; break;
+		case 'h': field[i] = ROYAL_BLUE; break;
+		case 'i': field[i] = POWDER_BLUE; break;
+
 		default:  field[i] = OFF; break;
 		}
 		if (player.type == 'P')
 			field[player.index] = WHITE;
 		else
-			field[player.index] = PURPLE;
+			field[player.index] = OFF;
 	}
 }
 
