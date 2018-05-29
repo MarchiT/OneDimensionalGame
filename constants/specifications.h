@@ -3,7 +3,7 @@
 
 
 #define PIN 6
-#define NUM_LEDS 288
+#define NUM_LEDS 144//268
 #define BRIGHTNESS 20
 
 

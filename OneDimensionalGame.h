@@ -47,6 +47,7 @@ private:
 	
 	void position_player(char direction);
 	void move_player();
+	void move_player_hardware();
 
 	void create_standard_story();
 };

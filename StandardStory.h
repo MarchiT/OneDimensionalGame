@@ -12,7 +12,7 @@ struct StandardStory
 
 	static char MAP2[NUM_LEDS];
 
-
+	static char MAP268[268];
 };
 
 

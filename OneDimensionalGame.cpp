@@ -39,7 +39,7 @@ void OneDimensionalGame::run() {
 	
 	levels[level_index].draw_props();
 
-	move_player();
+	move_player_hardware();
 
 	refreshScreen();
 }
@@ -92,6 +92,12 @@ void OneDimensionalGame::position_player(char direction) {
 		break;
 	case 'Z':
 		on = !on;
+		break;	
+	case 'P':
+		on = !on;
+		break;
+	case 'p':
+		on = !on;
 		break;
 	default:
 		break;
@@ -111,17 +117,23 @@ void OneDimensionalGame::move_player() {
 	}
 }
 
-// void OneDimensionalGame::move_player_hardware() {
-// 	char input[8];
-// 	Serial3.readBytes(input, 8); //LEUP pp 
+unsigned long speed_time = 0;
 
-// 	Serial.print("INPUT: ");
-// 	Serial.println(input);
+void OneDimensionalGame::move_player_hardware() {
 
-// 	//parse input if joystick is used
+	if (Serial3.available())
+	{
+		char input = Serial3.read();
 
-// 	position_player(input[0]);
-// }
+		Serial.print("INPUT: ");
+		Serial.println(input);
+
+		if((speed_time + 20) < millis() ) {
+			speed_time = millis();
+			position_player(input);
+		}
+	}
+}
 
 void OneDimensionalGame::add_level(int end, const char * map) {
 	if (map != NULL)
