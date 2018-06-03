@@ -3,6 +3,8 @@
 OneDimensionalGame game;
 
 void setup() {
+  pinMode(SW, INPUT_PULLUP);
+  
   Serial.begin(115200);
   Serial.println("Serial initialized");
   Serial2.begin(9600);
