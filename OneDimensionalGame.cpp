@@ -34,6 +34,8 @@ void OneDimensionalGame::run() {
 
 		if (level_index == levels.size()) {
 			level_index = 0;
+			//lock here until restart button is pressed
+			while(digitalRead(SW));
 		}
 	}
 	

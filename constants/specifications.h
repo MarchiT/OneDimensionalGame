@@ -6,5 +6,6 @@
 #define NUM_LEDS 144//268
 #define BRIGHTNESS 20
 
+#define SW 13
 
 #endif //CONSTANTS_H_
