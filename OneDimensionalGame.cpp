@@ -39,7 +39,7 @@ void OneDimensionalGame::run() {
 	
 	levels[level_index].draw_props();
 
-	move_player_hardware();
+	move_player_hardware_reverse();
 
 	refreshScreen();
 }
@@ -90,13 +90,29 @@ void OneDimensionalGame::position_player(char direction) {
 		if (player.index > 0)
 			player.index--;
 		break;
+	case 'u':
+		if (player.index < (levels[level_index].end-1))
+			player.index++;
+		break;
+	case 'd':
+		if (player.index > 0)
+			player.index--;
+		break;
+	case 'r':
+		if (player.index < (levels[level_index].end - 1))
+			player.index++;
+		break;
+	case 'l':
+		if (player.index > 0)
+			player.index--;
+		break;
 	case 'Z':
 		on = !on;
 		break;	
-	case 'P':
+	case 'C':
 		on = !on;
 		break;
-	case 'p':
+	case 'P':
 		on = !on;
 		break;
 	default:
@@ -104,7 +120,7 @@ void OneDimensionalGame::position_player(char direction) {
 	}
 }
 
-void OneDimensionalGame::move_player() {
+void OneDimensionalGame::move_player_software() {
 	if (Serial2.available()) {
 		char direction = Serial2.read();
 		Serial.write(direction);
@@ -128,10 +144,26 @@ void OneDimensionalGame::move_player_hardware() {
 		Serial.print("INPUT: ");
 		Serial.println(input);
 
-		if((speed_time + 20) < millis() ) {
-			speed_time = millis();
-			position_player(input);
+		position_player(input);
+	}
+}
+
+void OneDimensionalGame::move_player_hardware_reverse() {
+	if (Serial3.available())
+	{
+		char input = Serial3.read();
+		Serial.print("INPUT: ");
+		Serial.println(input);
+
+		switch(input)
+		{
+			case 'u': input = 'U'; break;
+			case 'd': input = 'D'; break;
+			case 'r': input = 'R'; break;
+			case 'l': input = 'L'; break;
 		}
+
+		position_player(input);
 	}
 }
 

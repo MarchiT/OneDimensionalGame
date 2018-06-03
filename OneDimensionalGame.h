@@ -46,8 +46,9 @@ private:
 	void blink_player();
 	
 	void position_player(char direction);
-	void move_player();
+	void move_player_software();
 	void move_player_hardware();
+	void move_player_hardware_reverse();
 
 	void create_standard_story();
 };
