@@ -1,9 +1,13 @@
 #include "Prop.h"
 
-Prop::Prop(int location, int size, char* map)
+Prop::Prop(int location, int size, char* map, int hitbox_start, int hitbox_end)
 	: location(location), size(size), map(map)
 {
-	init_default_hitbox();
+	if (hitbox_start == hitbox_end) {
+		hitbox_start = location - 1;
+		hitbox_end = hitbox_start + size;
+	}
+	set_hitbox(hitbox_start, hitbox_end);
 }
 
 Scheme Prop::create_scheme(char design, int frequency, bool dangerous) {
@@ -22,7 +26,8 @@ bool Prop::within_hitbox(int player_index) {
 	return (player_index >= hitbox.start && player_index < hitbox.end);
 }
 
-void Prop::init_default_hitbox() {
-	hitbox.start = location - 1;
-	hitbox.end = hitbox.start + size;
+void Prop::set_hitbox(int start, int end) {
+	if (end < start) {int temp = start; start = end; end = temp;}
+	hitbox.start = start;
+	hitbox.end = end;
 }
