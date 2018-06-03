@@ -67,8 +67,9 @@ bool Level::collided(int player_index) {
 	if (!props.size()) return false;
 
 	for (Prop* p : props) {
-		p->collision(player_index);
+		if(p->collision(player_index)) return true;;
 	}
+	return false;
 }
 
 void Level::draw_props() {

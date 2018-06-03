@@ -15,7 +15,6 @@ void PassiveEnemy::draw() {
 	}
 }
 
-// within_hitbox(player_index) && 
 bool PassiveEnemy::collision(int player_index) {
-	return (schemes[index].dangerous && (map[player_index] == schemes[index].design));
+	return (within_hitbox(player_index) && schemes[index].dangerous);
 }
