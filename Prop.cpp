@@ -24,5 +24,5 @@ bool Prop::within_hitbox(int player_index) {
 
 void Prop::init_default_hitbox() {
 	hitbox.start = location - 1;
-	hitbox.end = location + size - 1;
+	hitbox.end = hitbox.start + size;
 }

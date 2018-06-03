@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <vector>
+#include <string.h>
 
 #include "constants/specifications.h"
 #include "constants/colors.h"
@@ -11,7 +12,11 @@
 #include "Player.h"
 
 class Level {
-	Level();
+private:
+	Level(char* new_map, int new_end = NUM_LEDS);
+
+	void set_end(int new_end = NUM_LEDS);
+	void set_map(char* new_map);
 
 public:
 	int end = NUM_LEDS;
@@ -29,12 +34,6 @@ public:
 	bool collided(int player_index);
 
 	void draw_props();
-	
-private:
-	void init(char* new_map, int new_end = NUM_LEDS);
-
-	void set_end(int new_end = NUM_LEDS);
-	void set_map(char* new_map);
 };
 
 #endif //LEVEL_H_

@@ -1,18 +1,21 @@
 #include "Level.h"
 
-Level::Level() {
+Level::Level(char* new_map, int new_end) {
+	set_map(new_map);
+	set_end(new_end);
 }
 
 Level Level::new_level(const char * new_map, int new_end)
 {
-	//for now, new_map must be NUM_LEDS 
 	char* f = new char[NUM_LEDS];
-	for (int i = 0; i < NUM_LEDS; i++) {
+	for (int i = strlen(new_map); i < NUM_LEDS; i++) {
+		f[i] = 0;
+	}
+	for (int i = 0; i < strlen(new_map); i++) {
 		f[i] = new_map[i];
 	}
 
-	Level l;
-	l.init(f, new_end);
+	Level l(f, new_end);
 	return l;
 }
 
@@ -23,11 +26,6 @@ void Level::set_end(int new_end) {
 
 void Level::set_map(char* new_map) {
 	map = new_map;
-}
-
-void Level::init(char* new_map, int new_end) {
-	set_map(new_map);
-	set_end(new_end);
 }
 
 void Level::cast_map_to_field(Player player) {
@@ -79,6 +77,4 @@ void Level::draw_props() {
 	for (Prop* p : props) {
 		p->draw();
 	}
-
-	map[end - 1] = 'E'; //why don't you draw the end before this
 }
