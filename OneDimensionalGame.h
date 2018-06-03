@@ -13,7 +13,7 @@
 #include "Prop.h"
 #include "PassiveEnemy.h"
 
-#include "StandardStory.h"
+#include "StandardMaps.h"
 
 class OneDimensionalGame {
 private:

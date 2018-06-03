@@ -39,6 +39,10 @@ void Level::cast_map_to_field(Player player) {
 
 		case 'E': field[i] = GREEN; break;
 
+		case 'Y': field[i] = YELLOW; break;
+		case 'W': field[i] = WHITE; break;
+		case 'Z': field[i] = OFF; break;
+
 		case 'a': field[i] = STUFFLED_GREEN; break;
 		case 'b': field[i] = PASTEL_ORANGE; break;
 		case 'c': field[i] = PASTEL_RED; break;

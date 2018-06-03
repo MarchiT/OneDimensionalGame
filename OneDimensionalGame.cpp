@@ -139,7 +139,7 @@ void OneDimensionalGame::add_level(int end, const char * map) {
 	if (map != NULL)
 		levels.push_back(Level::new_level(map, end));
 	else
-		levels.push_back(Level::new_level(StandardStory::MAP_DEFAULT, end));
+		levels.push_back(Level::new_level(StandardMaps::MAP_DEFAULT, end));
 }
 
 
