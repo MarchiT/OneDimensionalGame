@@ -3,10 +3,15 @@
 
 class DemoEnemies {
 public:
+    /* BASIC ENEMIES */
     static void basic_short(PassiveEnemy *p);
     static void basic_long(PassiveEnemy *p);
     static void colourful_blue(PassiveEnemy *p); //add reverse
     static void disguise(PassiveEnemy *p);
+    /* MERGED ENEMIES */
+    static void lift(int level, int size, int location, int speed, OneDimensionalGame* odg);
+    static void reverse_lift(int level, int size, int location, int speed, OneDimensionalGame* odg);
+    static void trap(int level, int size, int location, OneDimensionalGame* odg);
     
 };
 
