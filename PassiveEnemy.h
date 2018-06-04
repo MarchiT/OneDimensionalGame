@@ -11,7 +11,7 @@ public:
 
 	void draw();
 
-	bool collision(int player_index);
+	void collision(Player* player);
 
 };
 

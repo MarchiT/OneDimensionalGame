@@ -63,18 +63,13 @@ void Level::cast_map_to_field(Player player) {
 }
 
 
-bool Level::collided(int player_index) {
-	if (!props.size()) return false;
-
+void Level::collided(Player* player) {
 	for (Prop* p : props) {
-		if(p->collision(player_index)) return true;;
+		p->collision(player);
 	}
-	return false;
 }
 
 void Level::draw_props() {
-	if (!props.size()) return;
-
 	for (Prop* p : props) {
 		p->draw();
 	}

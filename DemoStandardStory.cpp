@@ -11,8 +11,10 @@ void OneDimensionalGame::create_standard_story() {
 	DemoEnemies::disguise(add_prop(0, 2, 21));
 	DemoEnemies::colourful_blue(add_prop(0, 3, 25));
 
-	DemoEnemies::lift(0, 25, 33, 30, this);
+	DemoEnemies::reverse_lift(0, 25, 33, 30, this);
 	DemoEnemies::trap(0, 5, 62, this);
+
+	add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
 }
 
 
@@ -34,7 +36,7 @@ void DemoEnemies::colourful_blue(PassiveEnemy *p) {
 	p->add_scheme('R', 60, true);  //MAKE RED MORE SHINY
 }
 
-void DemoEnemies::disguise(PassiveEnemy *p) { //why the actual fuck
+void DemoEnemies::disguise(PassiveEnemy *p) {
 	p->add_scheme('c', 80, true);
 	p->add_scheme('Z', 120, false);  
 }
@@ -43,8 +45,8 @@ void DemoEnemies::reverse_lift(int level, int size, int location,
 						int speed, OneDimensionalGame* odg) {
 	for (int i = 0; i < size; i++) {
 		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
-		p->add_scheme('R', size*speed + i*speed, false);
-		p->add_scheme('G', size*speed - i*speed, true);
+		p->add_scheme('G', size*speed + i*speed, false);
+		p->add_scheme('R', size*speed - i*speed, true);
 	}
 }
 
@@ -52,8 +54,8 @@ void DemoEnemies::lift(int level, int size, int location,
 						int speed, OneDimensionalGame* odg) {
 	for (int i = 0; i < size; i++) {
 		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
-		p->add_scheme('G', size*speed + i*speed, true);
-		p->add_scheme('R', size*speed - i*speed, false);
+		p->add_scheme('R', size*speed - i*speed, true);
+		p->add_scheme('G', size*speed + i*speed, false);
 	}
 }
 

@@ -2,6 +2,7 @@
 #define PROP_H_
 
 #include <vector>
+#include "Player.h"
 
 struct Hitbox {
 	int start;
@@ -28,7 +29,7 @@ public:
 	
 	virtual void draw() = 0;
 
-	virtual bool collision(int player_index) = 0;
+	virtual void collision(Player* player) = 0;
 
 protected:	
 	int state = 0;

@@ -23,9 +23,7 @@ void OneDimensionalGame::init() {
 
 void OneDimensionalGame::run() {
 
-	if (levels[level_index].collided(player.index)) {
-		player.index = 0;
-	}
+	levels[level_index].collided(&player);
 
 	if (final()) {
 		// go back to the beginning of the level
