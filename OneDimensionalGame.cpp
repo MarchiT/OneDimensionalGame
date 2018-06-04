@@ -39,7 +39,7 @@ void OneDimensionalGame::run() {
 	
 	levels[level_index].draw_props();
 
-	move_player_hardware_reverse();
+	move_player_hardware();
 
 	refreshScreen();
 }
@@ -82,13 +82,11 @@ void OneDimensionalGame::position_player(char direction) {
 		if (player.index > 0)
 			player.index--;
 		break;
-	case 'R':
-		if (player.index < (levels[level_index].end - 1))
-			player.index++;
+	case 'R': //selects through items from right
+
 		break;
-	case 'L':
-		if (player.index > 0)
-			player.index--;
+	case 'L': //selects through items from left
+		player.hover_item++;
 		break;
 	case 'u':
 		if (player.index < (levels[level_index].end-1))

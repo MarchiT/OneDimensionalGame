@@ -7,8 +7,6 @@ class Item : public Prop {
 public:
     Item(int location, char* map);
 
-    void draw();
-
     void collision(Player* player);
 };
 

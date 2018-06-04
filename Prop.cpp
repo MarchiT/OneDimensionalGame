@@ -31,3 +31,14 @@ void Prop::set_hitbox(int start, int end) {
 	hitbox.start = start;
 	hitbox.end = end;
 }
+
+void Prop::draw() {
+	if (++state < schemes[index].frequency) {
+		for (int i = location - 1; i < location + size - 1; i++) {
+			map[i] = schemes[index].design;
+		}
+	} else {
+		state = 0;
+		if (++index == schemes.size()) index = 0;
+	}
+}

@@ -37,8 +37,8 @@ void OneDimensionalGame::create_standard_story() {
 
 	// add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
 
-	// level1(this);
-	level2(this, 0);
+	level1(this);
+	level2(this);
 }
 
 

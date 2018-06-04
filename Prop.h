@@ -27,7 +27,7 @@ public:
 	
 	void add_scheme(char design, int frequency, bool interact);
 	
-	virtual void draw() = 0;
+	virtual void draw();
 
 	virtual void collision(Player* player) = 0;
 
