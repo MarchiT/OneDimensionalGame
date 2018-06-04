@@ -28,7 +28,7 @@ void Level::set_map(char* new_map) {
 	map = new_map;
 }
 
-void Level::cast_map_to_field(Player player) {
+void Level::cast_map_to_field() {
 	for (int i = 0; i < NUM_LEDS; i++) {
 		switch (map[i]) {
 		case 'R': field[i] = RED; break;
@@ -55,10 +55,6 @@ void Level::cast_map_to_field(Player player) {
 
 		default:  field[i] = OFF; break;
 		}
-		if (player.type == 'P')
-			field[player.index] = WHITE;
-		else
-			field[player.index] = OFF;
 	}
 }
 

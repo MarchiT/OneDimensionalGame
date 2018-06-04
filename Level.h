@@ -29,7 +29,7 @@ public:
 
 	static Level new_level(const char* new_map, int new_end = NUM_LEDS);
 	
-	void cast_map_to_field(Player player);
+	void cast_map_to_field();
 	
 	void collided(Player* player);
 

@@ -51,7 +51,8 @@ bool OneDimensionalGame::final() {
 void OneDimensionalGame::refreshScreen() {
 	if (on) blink_player();
 
-	levels[level_index].cast_map_to_field(player);
+	levels[level_index].cast_map_to_field();
+	player.draw(levels[level_index].field); //Player draws itself directly onto the field
 	upload_colors();
 }
 
@@ -70,7 +71,6 @@ void OneDimensionalGame::upload_colors() {
 	strip.show();
 }
 
-//add more chars for direction - pickup, pause, etc.
 void OneDimensionalGame::position_player(char direction) {
 	switch (direction)
 	{
