@@ -1,7 +1,7 @@
 #include "OneDimensionalGame.h"
 
 //add_level(7); //size, [map]
-//add_props(0, 3, 3); //level, size, location
+//add_passive_enemys(0, 3, 3); //level, size, location
 
 void basic_enemy(PassiveEnemy *p) {
 	p->add_scheme('G', 70, false);
@@ -48,7 +48,7 @@ void polka_switch_enemy(int level, int size, int location, OneDimensionalGame* o
 	bool sw = false;
 
 	for (int i = 0; i < size; i++) {
-		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
+		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
 		if (!sw) {
 			sw = true;
 			p->add_scheme('B', 70, true);
@@ -66,7 +66,7 @@ void polka_enemy(int level, int size, int location, OneDimensionalGame* odg) {
 	bool sw = false;
 
 	for (int i = 0; i < size; i++) {
-		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
+		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
 		if (!sw) {
 			sw = true;
 			p->add_scheme('B', 70, true);
@@ -82,15 +82,15 @@ void polka_enemy(int level, int size, int location, OneDimensionalGame* odg) {
 void transparent_enemy(int level, int size, int location, OneDimensionalGame* odg) {
 	if (size <= 2) size=3;  //size should always be bigger than 2
 
-	PassiveEnemy *p1 = odg->add_prop(level, 1, location);
+	PassiveEnemy *p1 = odg->add_passive_enemy(level, 1, location);
 	p1->add_scheme('R', 70, true);
 	p1->add_scheme('B', 120, false);
-	PassiveEnemy *p2 = odg->add_prop(level, 1, location+size-1);
+	PassiveEnemy *p2 = odg->add_passive_enemy(level, 1, location+size-1);
 	p2->add_scheme('R', 70, true);
 	p2->add_scheme('B', 120, false);
 
 	for (int i = 1; i < size - 1; i++) {
-		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
+		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
 		p->add_scheme('Z', 70, true);
 		p->add_scheme('Z', 120, true);
 	}
@@ -100,7 +100,7 @@ void steps_enemy(int level, int size, int location, int speed, OneDimensionalGam
 	bool sw = false;
 
 	for (int i = 0; i < size; i++) {
-		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
+		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
 		p->add_scheme('c', size*speed + i*speed, false);
 		p->add_scheme('G', size*speed - i*speed, true);
 	}
@@ -110,25 +110,25 @@ void chaos_enemy(int level, int location, OneDimensionalGame* odg) {
 	//diffuse = 170;
 	//size = 4;
 
-	PassiveEnemy *p = odg->add_prop(level, 1, location);
+	PassiveEnemy *p = odg->add_passive_enemy(level, 1, location);
 	p->add_scheme('R', 100, true);
 	p->add_scheme('G', 20, true);
 	p->add_scheme('B', 50, true);
 	p->add_scheme('W', 100, false);
 
-	p = odg->add_prop(level, 1, location+1);
+	p = odg->add_passive_enemy(level, 1, location+1);
 	p->add_scheme('B', 30, true);
 	p->add_scheme('R', 70, true);
 	p->add_scheme('G', 70, true);
 	p->add_scheme('W', 100, false);
 
-	p = odg->add_prop(level, 1, location+2);
+	p = odg->add_passive_enemy(level, 1, location+2);
 	p->add_scheme('G', 85, true);
 	p->add_scheme('R', 25, true);
 	p->add_scheme('B', 60, true);
 	p->add_scheme('W', 100, false);
 
-	p = odg->add_prop(level, 1, location+3);
+	p = odg->add_passive_enemy(level, 1, location+3);
 	p->add_scheme('R', 90, true);
 	p->add_scheme('B', 40, true);
 	p->add_scheme('G', 40, true);
@@ -139,7 +139,7 @@ void random_enemy(int level, int size, int location, OneDimensionalGame* odg) {
 	bool sw = false;
 
 	for (int i = 0; i < size; i++) {
-		PassiveEnemy *p = odg->add_prop(level, 1, location+i);
+		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
 		p->add_scheme('G', 70 + i*20, true);
 		p->add_scheme('c', 70 + i*20, false);
 	}
@@ -149,17 +149,17 @@ void random_enemy(int level, int size, int location, OneDimensionalGame* odg) {
 
 // 	add_level(NUM_LEDS, StandardStory::MAP_TEST);
 //     //simple enemies segment
-//     basic_enemy(add_prop(0, 2, 13));
-//     basic_enemy(add_prop(0, 2, 18));
-//     long_enemy(add_prop(0, 5, 25));
-//     stoplight_enemy(add_prop(0, 3, 35));
-//     colour_enemy_blue(add_prop(0, 5, 41));
-// 	red_colour_enemy_red(add_prop(0, 3, 51));
-// 	red_colour_enemy_red(add_prop(0, 2, 58));
+//     basic_enemy(add_passive_enemy(0, 2, 13));
+//     basic_enemy(add_passive_enemy(0, 2, 18));
+//     long_enemy(add_passive_enemy(0, 5, 25));
+//     stoplight_enemy(add_passive_enemy(0, 3, 35));
+//     colour_enemy_blue(add_passive_enemy(0, 5, 41));
+// 	red_colour_enemy_red(add_passive_enemy(0, 3, 51));
+// 	red_colour_enemy_red(add_passive_enemy(0, 2, 58));
 // 	//red segment simple
-// 	disguise_enemy(add_prop(0, 4, 64), 'B');
-// 	disguise_enemy(add_prop(0, 2, 70), 'G');
-// 	disguise_enemy(add_prop(0, 1, 73), 'R');
+// 	disguise_enemy(add_passive_enemy(0, 4, 64), 'B');
+// 	disguise_enemy(add_passive_enemy(0, 2, 70), 'G');
+// 	disguise_enemy(add_passive_enemy(0, 1, 73), 'R');
 	
 // 	//red segment collective
 // 	// polka_enemy(0, 5, 79, this);

@@ -35,7 +35,7 @@ public:
 	void add_level(const char* map = NULL, int end = NUM_LEDS);
 
 	void add_props(int lvl, int size, int location);
-	PassiveEnemy* add_prop(int lvl, int size, int location);
+	PassiveEnemy* add_passive_enemy(int lvl, int size, int location);
 	Item* add_item(int lvl, int location);
 
 private:

@@ -185,7 +185,7 @@ void OneDimensionalGame::add_props(int lvl, int size, int location) {
 	levels[lvl].props.push_back(p);
 }
 
-PassiveEnemy* OneDimensionalGame::add_prop(int lvl, int size, int location) {
+PassiveEnemy* OneDimensionalGame::add_passive_enemy(int lvl, int size, int location) {
 	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
 	levels[lvl].props.push_back(p);
 	return p;
