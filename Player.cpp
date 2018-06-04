@@ -4,6 +4,12 @@ Player::Player()
 	: index(0), type('P'), blink_time(0), blink_speed(50)
 {}
 
+void Player::clean() {
+	index = 0;
+	ammo = 0;
+	items = 0;
+}
+
 Player::Player(int index, char type, unsigned long blink_time, char blink_speed)
 	: index(index), type(type), blink_time(blink_time), blink_speed(blink_speed)
 {}

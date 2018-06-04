@@ -27,7 +27,7 @@ void OneDimensionalGame::run() {
 
 	if (final()) {
 		// go back to the beginning of the level
-		player.index = 0;
+		player.clean();
 		level_index++;
 
 		if (level_index == levels.size()) {
@@ -106,13 +106,13 @@ void OneDimensionalGame::position_player(char direction) {
 		if (player.index > 0)
 			player.index--;
 		break;
-	case 'Z':
-		on = !on;
+	case 'Z': //Joystick Switch
+		player.get_pickup = true;
 		break;	
-	case 'C':
+	case 'C': //Square button away from joystick
 		on = !on;
 		break;
-	case 'P':
+	case 'P': //Square button next to joystick
 		on = !on;
 		break;
 	default:
@@ -189,4 +189,10 @@ PassiveEnemy* OneDimensionalGame::add_prop(int lvl, int size, int location) {
 	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
 	levels[lvl].props.push_back(p);
 	return p;
+}
+
+Item* OneDimensionalGame::add_item(int lvl, int location) {
+	Item* i = new Item(location, levels[lvl].map);
+	levels[lvl].props.push_back(i);
+	return i;
 }

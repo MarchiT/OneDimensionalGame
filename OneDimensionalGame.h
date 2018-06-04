@@ -12,6 +12,7 @@
 #include "Level.h"
 #include "Prop.h"
 #include "PassiveEnemy.h"
+#include "Item.h"
 
 #include "StandardMaps.h"
 
@@ -35,6 +36,7 @@ public:
 
 	void add_props(int lvl, int size, int location);
 	PassiveEnemy* add_prop(int lvl, int size, int location);
+	Item* add_item(int lvl, int location);
 
 private:
 	void init();

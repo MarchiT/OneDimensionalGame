@@ -18,8 +18,10 @@ public:
 
 	void draw(uint32_t* field, int end);
 
-	int ammo = 3;
-	int items = 4;
+	void clean();
+
+	int ammo = 0;
+	int items = 0;
 
 	bool get_pickup = false;
 	char hover_item;
