@@ -16,7 +16,7 @@ void level1(OneDimensionalGame* odg, int level = 0) {
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
-	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN, 20);
+	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN, 40);
 
     // DemoEnemies::basic_short(odg->add_passive_enemy(level, 2, 10));
 	odg->add_item(level, 10);
@@ -37,8 +37,8 @@ void OneDimensionalGame::create_standard_story() {
 
 	// add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
 
-	level1(this);
-	level2(this);
+	// level1(this);
+	level2(this, 0);
 }
 
 

@@ -21,11 +21,14 @@ void Player::draw(uint32_t* field, int level_end) {
 	int end = index + ammo + 1;
 	if (end > level_end) end = level_end;	
 
-
+	//draw items
 	for (int i = start; i < index; i++) {
 		field[i] = WHITE;
 	}
+	if (hover_item != 0) field[index - hover_item] = RED;
+	//draw player
 	field[index] = type == 'P' ? WHITE : OFF;
+	//draw ammo
 	for (int i = index + 1; i < end; i++) {
 		field[i] = WHITE;
 	}

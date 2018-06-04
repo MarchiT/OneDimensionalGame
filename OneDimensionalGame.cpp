@@ -83,10 +83,16 @@ void OneDimensionalGame::position_player(char direction) {
 			player.index--;
 		break;
 	case 'R': //selects through items from right
-
+		player.hover_item--;
+		if (player.hover_item < 1)
+			player.hover_item = player.items;	
+		Serial.println((int)player.hover_item);
 		break;
 	case 'L': //selects through items from left
 		player.hover_item++;
+
+		if (player.hover_item > player.items)
+			player.hover_item = 1;
 		break;
 	case 'u':
 		if (player.index < (levels[level_index].end-1))
@@ -107,11 +113,15 @@ void OneDimensionalGame::position_player(char direction) {
 	case 'Z': //Joystick Switch
 		player.get_pickup = true;
 		break;	
-	case 'C': //Square button away from joystick
-		on = !on;
+	case 'C': //Square button away from joystick | CHOOSE, select
+		if (player.hover_item != 0){
+			// if (--player.items == 0) player.hover_item = 0;
+			player.items--;
+			player.hover_item = 0;			
+		}
 		break;
-	case 'P': //Square button next to joystick
-		on = !on;
+	case 'P': //Square button next to joystick | stop selecting 
+		player.hover_item = (player.hover_item) ? 0 : 1;
 		break;
 	default:
 		break;

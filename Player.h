@@ -24,7 +24,7 @@ public:
 	int items = 0;
 
 	bool get_pickup = false;
-	char hover_item;
+	int hover_item;
 };
 
 #endif //PLAYER_H_
