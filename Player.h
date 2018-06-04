@@ -16,10 +16,10 @@ public:
 	Player();
 	Player(int index, char type, unsigned long blink_time, char blink_speed);
 
-	void draw(uint32_t* field);
+	void draw(uint32_t* field, int end);
 
-	int ammo = 0;
-	int items = 0;
+	int ammo = 3;
+	int items = 4;
 
 	bool get_pickup = false;
 	char hover_item;

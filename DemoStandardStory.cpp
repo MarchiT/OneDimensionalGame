@@ -16,7 +16,7 @@ void level1(OneDimensionalGame* odg, int level = 0) {
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
-	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
+	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN, 20);
 
     DemoEnemies::basic_short(odg->add_prop(level, 2, 10));
 }
