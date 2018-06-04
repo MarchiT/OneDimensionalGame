@@ -31,7 +31,7 @@ public:
 
 	void run();
 	
-	void add_level(int end = NUM_LEDS, const char* map = NULL);
+	void add_level(const char* map = NULL, int end = NUM_LEDS);
 
 	void add_props(int lvl, int size, int location);
 	PassiveEnemy* add_prop(int lvl, int size, int location);

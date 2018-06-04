@@ -16,7 +16,7 @@ void setup() {
 	Serial.println("Serial initialized");
 	Serial2.begin(9600);
 
-	game.add_level(20, level1_map);
+	game.add_level(level1_map, 20);
 	game.add_props(0, 5, 10);
 }
 

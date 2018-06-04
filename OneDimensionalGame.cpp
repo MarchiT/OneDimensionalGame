@@ -52,7 +52,7 @@ void OneDimensionalGame::refreshScreen() {
 	if (on) blink_player();
 
 	levels[level_index].cast_map_to_field();
-	player.draw(levels[level_index].field); //Player draws itself directly onto the field
+	player.draw(levels[level_index].field, levels[level_index].end); //Player draws itself directly onto the field
 	upload_colors();
 }
 
@@ -167,7 +167,7 @@ void OneDimensionalGame::move_player_hardware_reverse() {
 	}
 }
 
-void OneDimensionalGame::add_level(int end, const char * map) {
+void OneDimensionalGame::add_level(const char * map, int end) {
 	if (map != NULL)
 		levels.push_back(Level::new_level(map, end));
 	else

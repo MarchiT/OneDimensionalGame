@@ -1,20 +1,43 @@
 #include "OneDimensionalGame.h"
 #include "DemoEnemies.h"
 
+//add this to DemoStandardStory.h, and the enemies to DemoEnemies.cpp, ODG maybe back to original cpp class, maybe new file
+void level1(OneDimensionalGame* odg, int level = 0) {
+    odg->add_level(StandardMaps::MAP_BLANK, 70);
+
+    DemoEnemies::basic_short(odg->add_prop(0, 2, 10));
+    DemoEnemies::basic_long(odg->add_prop(0, 4, 15));
+
+	DemoEnemies::disguise(odg->add_prop(0, 2, 21));
+	DemoEnemies::colourful_blue(odg->add_prop(0, 3, 25));
+
+	DemoEnemies::reverse_lift(0, 25, 33, 30, odg);
+	DemoEnemies::trap(0, 5, 62, odg);
+}
+
+void level2(OneDimensionalGame* odg, int level = 1) {
+	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
+
+    DemoEnemies::basic_short(odg->add_prop(level, 2, 10));
+}
+
 
 void OneDimensionalGame::create_standard_story() {
-    add_level(70, StandardMaps::MAP_BLANK);
+    // add_level(70, StandardMaps::MAP_BLANK);
 
-    DemoEnemies::basic_short(add_prop(0, 2, 10));
-    DemoEnemies::basic_long(add_prop(0, 4, 15));
+    // DemoEnemies::basic_short(add_prop(0, 2, 10));
+    // DemoEnemies::basic_long(add_prop(0, 4, 15));
 
-	DemoEnemies::disguise(add_prop(0, 2, 21));
-	DemoEnemies::colourful_blue(add_prop(0, 3, 25));
+	// DemoEnemies::disguise(add_prop(0, 2, 21));
+	// DemoEnemies::colourful_blue(add_prop(0, 3, 25));
 
-	DemoEnemies::reverse_lift(0, 25, 33, 30, this);
-	DemoEnemies::trap(0, 5, 62, this);
+	// DemoEnemies::reverse_lift(0, 25, 33, 30, this);
+	// DemoEnemies::trap(0, 5, 62, this);
 
-	add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
+	// add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
+
+	// level1(this);
+	level2(this, 0);
 }
 
 
