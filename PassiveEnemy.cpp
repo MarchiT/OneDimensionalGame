@@ -16,7 +16,7 @@ void PassiveEnemy::draw() {
 }
 
 void PassiveEnemy::collision(Player* player) {
-	if (within_hitbox(player->index) && schemes[index].dangerous) {
+	if (within_hitbox(player->index) && schemes[index].interact) {
 		player->index = 0;
 	}
 }

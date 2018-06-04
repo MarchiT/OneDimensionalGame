@@ -10,16 +10,16 @@ Prop::Prop(int location, int size, char* map, int hitbox_start, int hitbox_end)
 	set_hitbox(hitbox_start, hitbox_end);
 }
 
-Scheme Prop::create_scheme(char design, int frequency, bool dangerous) {
+Scheme Prop::create_scheme(char design, int frequency, bool interact) {
 	Scheme s;
 	s.design = design;
 	s.frequency = frequency;
-	s.dangerous = dangerous;
+	s.interact = interact;
 	return s;
 }
 
-void Prop::add_scheme(char design, int frequency, bool dangerous) {
-	schemes.push_back(create_scheme(design, frequency, dangerous));
+void Prop::add_scheme(char design, int frequency, bool interact) {
+	schemes.push_back(create_scheme(design, frequency, interact));
 }
 
 bool Prop::within_hitbox(int player_index) {

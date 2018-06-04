@@ -3,6 +3,7 @@
 
 #include "Prop.h"
 
+//Enemies iteract with Player: by being either dangerous or safe to pass through
 class Enemy : public Prop {
 public:
 	Enemy(int location, int size, char* map)
