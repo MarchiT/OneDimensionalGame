@@ -121,7 +121,7 @@ void OneDimensionalGame::position_player(char direction) {
 		}
 		break;
 	case 'P': //Square button next to joystick | stop selecting 
-		player.hover_item = (player.hover_item) ? 0 : 1;
+		if(player.items) player.hover_item = (player.hover_item) ? 0 : 1;
 		break;
 	default:
 		break;
@@ -204,6 +204,13 @@ ActiveEnemy* OneDimensionalGame::add_active_enemy(int lvl, int size, int locatio
 	levels[lvl].props.push_back(a);
 	return a;
 }
+
+RushEnemy* OneDimensionalGame::add_rush_enemy(int lvl) {
+	RushEnemy* m = new RushEnemy(levels[lvl].map);
+	levels[lvl].props.push_back(m);
+	return m;
+}
+
 
 Item* OneDimensionalGame::add_item(int lvl, int location) {
 	Item* i = new Item(location, levels[lvl].map);

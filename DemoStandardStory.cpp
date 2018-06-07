@@ -20,6 +20,8 @@ void level2(OneDimensionalGame* odg, int level = 1) {
 
 	odg->add_item(level, 10);
 
+	// odg->add_rush_enemy(level);
+
     DemoEnemies::lock(odg->add_active_enemy(level, 5, 30));
     DemoEnemies::lock(odg->add_active_enemy(level, 5, 40));
     DemoEnemies::lock(odg->add_active_enemy(level, 5, 50));
@@ -40,8 +42,8 @@ void OneDimensionalGame::create_standard_story() {
 
 	// add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
 
-	// level1(this);
-	level2(this, 0);
+	level1(this);
+	level2(this);
 }
 
 
