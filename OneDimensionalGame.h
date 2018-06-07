@@ -12,7 +12,7 @@
 #include "Level.h"
 #include "Prop.h"
 #include "PassiveEnemy.h"
-#include "ActiveEnemy.h"
+#include "LockedEnemy.h"
 #include "RushEnemy.h"
 #include "Item.h"
 
@@ -38,7 +38,7 @@ public:
 
 	void add_props(int lvl, int size, int location);
 	PassiveEnemy* add_passive_enemy(int lvl, int size, int location);
-	ActiveEnemy* add_active_enemy(int lvl, int size, int location);
+	LockedEnemy* add_locked_enemy(int lvl, int size, int location);
 	RushEnemy* add_rush_enemy(int lvl);
 	Item* add_item(int lvl, int location);
 

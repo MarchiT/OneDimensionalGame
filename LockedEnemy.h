@@ -1,17 +1,17 @@
-#ifndef ACTIVE_ENEMY_H_
-#define ACTIVE_ENEMY_H_
+#ifndef LOCKED_ENEMY_H_
+#define LOCKED_ENEMY_H_
 
 #include "Enemy.h"
 #include "PassiveEnemy.h"
 
 
-class ActiveEnemy : public Enemy {
+class LockedEnemy : public Enemy {
     int passive_size;
     PassiveEnemy* wall;
     bool activated;
 
 public:
-	ActiveEnemy(int location, char* map, int passive_size)
+	LockedEnemy(int location, char* map, int passive_size)
         :Enemy(location, 1, map)
     {
         this->activated = false;
@@ -42,4 +42,4 @@ public:
     }
 };
 
-#endif //ACTIVE_ENEMY_H_
+#endif //LOCKED_ENEMY_H_

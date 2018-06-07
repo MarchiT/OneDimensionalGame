@@ -22,9 +22,9 @@ void level2(OneDimensionalGame* odg, int level = 1) {
 
 	// odg->add_rush_enemy(level);
 
-    DemoEnemies::lock(odg->add_active_enemy(level, 5, 30));
-    DemoEnemies::lock(odg->add_active_enemy(level, 5, 40));
-    DemoEnemies::lock(odg->add_active_enemy(level, 5, 50));
+    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 30));
+    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 40));
+    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 50));
 }
 
 
@@ -106,7 +106,7 @@ void DemoEnemies::trap(int level, int size, int location,
 	}
 }
 
-void DemoEnemies::lock(ActiveEnemy *a) {
-	a->add_scheme('W', 60, true);
-	a->add_scheme('B', 60, false);
+void DemoEnemies::lock(LockedEnemy *l) {
+	l->add_scheme('W', 60, true);
+	l->add_scheme('B', 60, false);
 }

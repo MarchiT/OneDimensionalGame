@@ -199,10 +199,10 @@ PassiveEnemy* OneDimensionalGame::add_passive_enemy(int lvl, int size, int locat
 	return p;
 }
 
-ActiveEnemy* OneDimensionalGame::add_active_enemy(int lvl, int size, int location) {
-	ActiveEnemy* a = new ActiveEnemy(location, levels[lvl].map, size);
-	levels[lvl].props.push_back(a);
-	return a;
+LockedEnemy* OneDimensionalGame::add_locked_enemy(int lvl, int size, int location) {
+	LockedEnemy* l = new LockedEnemy(location, levels[lvl].map, size);
+	levels[lvl].props.push_back(l);
+	return l;
 }
 
 RushEnemy* OneDimensionalGame::add_rush_enemy(int lvl) {

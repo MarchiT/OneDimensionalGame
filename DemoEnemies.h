@@ -12,8 +12,8 @@ public:
     static void lift(int level, int size, int location, int speed, OneDimensionalGame* odg);
     static void reverse_lift(int level, int size, int location, int speed, OneDimensionalGame* odg);
     static void trap(int level, int size, int location, OneDimensionalGame* odg);
-    /* ACTIVE ENEMIES */
-    static void lock(ActiveEnemy* a);
+    /* LOCK ENEMIES */
+    static void lock(LockedEnemy* a);
 };
 
 #endif //DEMO_ENEMIES_H_
