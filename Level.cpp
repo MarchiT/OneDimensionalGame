@@ -59,7 +59,7 @@ void Level::cast_map_to_field() {
 }
 
 
-void Level::collided(Player* player) {
+void Level::collided(Player& player) {
 	for (Prop* p : props) {
 		p->collision(player);
 	}

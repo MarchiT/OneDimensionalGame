@@ -7,9 +7,9 @@ Item::Item(int location, char* map)
     add_scheme('W', 30, true);
 }
 
-void Item::collision(Player* player) {
-    if (within_hitbox(player->index) && player->get_pickup) {
-        player->items++;
-        player->get_pickup = false;
+void Item::collision(Player& player) {
+    if (within_hitbox(player.index) && player.get_pickup) {
+        player.items++;
+        player.get_pickup = false;
     }
 }

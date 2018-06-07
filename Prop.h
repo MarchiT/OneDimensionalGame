@@ -29,7 +29,7 @@ public:
 	
 	virtual void draw();
 
-	virtual void collision(Player* player) = 0;
+	virtual void collision(Player& player) = 0;
 
 protected:	
 	int state = 0;

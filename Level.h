@@ -31,7 +31,7 @@ public:
 	
 	void cast_map_to_field();
 	
-	void collided(Player* player);
+	void collided(Player& player);
 
 	void draw_props();
 };
