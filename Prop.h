@@ -2,6 +2,7 @@
 #define PROP_H_
 
 #include <vector>
+// #include <algorithm>
 #include "Player.h"
 
 struct Hitbox {
@@ -13,6 +14,12 @@ struct Scheme {
 	char design;
 	int frequency;
 	bool interact = false;
+
+	bool operator==(const Scheme& rhs) const {
+		return design == rhs.design
+				&& frequency == rhs.frequency
+				&& interact == rhs.interact;
+    }
 };
 
 class Prop {
@@ -26,6 +33,7 @@ public:
 	Prop(int location, int size, char* map, int hitbox_start=0, int hitbox_end=0);
 	
 	void add_scheme(char design, int frequency, bool interact);
+	bool remove_schemes();
 	
 	virtual void draw();
 

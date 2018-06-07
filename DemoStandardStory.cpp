@@ -16,10 +16,13 @@ void level1(OneDimensionalGame* odg, int level = 0) {
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
-	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN, 40);
+	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
 
-    // DemoEnemies::basic_short(odg->add_passive_enemy(level, 2, 10));
 	odg->add_item(level, 10);
+
+    DemoEnemies::lock(odg->add_active_enemy(level, 5, 30));
+    DemoEnemies::lock(odg->add_active_enemy(level, 5, 40));
+    DemoEnemies::lock(odg->add_active_enemy(level, 5, 50));
 }
 
 
@@ -99,4 +102,9 @@ void DemoEnemies::trap(int level, int size, int location,
 		p->add_scheme('Z', 100, true);
 		p->add_scheme('Z', 300, false);
 	}
+}
+
+void DemoEnemies::lock(ActiveEnemy *a) {
+	a->add_scheme('W', 60, true);
+	a->add_scheme('B', 60, false);
 }

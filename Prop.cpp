@@ -22,6 +22,12 @@ void Prop::add_scheme(char design, int frequency, bool interact) {
 	schemes.push_back(create_scheme(design, frequency, interact));
 }
 
+bool Prop::remove_schemes() {
+	// schemes.erase(std::remove(schemes.begin(), schemes.end(), to_remove), schemes.end());
+	// schemes.erase(std::find(schemes.begin(), schemes.end(), to_remove));
+	schemes.clear();
+}
+
 bool Prop::within_hitbox(int player_index) {
 	return (player_index >= hitbox.start && player_index < hitbox.end);
 }

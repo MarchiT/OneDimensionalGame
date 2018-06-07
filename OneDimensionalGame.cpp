@@ -199,6 +199,12 @@ PassiveEnemy* OneDimensionalGame::add_passive_enemy(int lvl, int size, int locat
 	return p;
 }
 
+ActiveEnemy* OneDimensionalGame::add_active_enemy(int lvl, int size, int location) {
+	ActiveEnemy* a = new ActiveEnemy(location, levels[lvl].map, size);
+	levels[lvl].props.push_back(a);
+	return a;
+}
+
 Item* OneDimensionalGame::add_item(int lvl, int location) {
 	Item* i = new Item(location, levels[lvl].map);
 	levels[lvl].props.push_back(i);
