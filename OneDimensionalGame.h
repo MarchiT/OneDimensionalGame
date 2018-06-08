@@ -56,5 +56,8 @@ private:
 	void move_player_hardware();
 	void move_player_hardware_reverse();
 
+	void rainbowFade2White(uint8_t wait, int rainbowLoops, int whiteLoops);
+	uint32_t Wheel(byte WheelPos);
+
 	void create_standard_story();
 };
