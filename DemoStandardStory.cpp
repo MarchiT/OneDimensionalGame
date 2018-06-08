@@ -15,7 +15,9 @@ void level1(OneDimensionalGame* odg, int level = 0) {
 	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 70), StandardMaps::MAP_BLANK[70]);
 
 	DemoEnemies::reverse_lift(0, 25, 87, 30, odg);
-	// DemoEnemies::trap(0, 5, 90, odg);
+	DemoEnemies::stoplight_enemy(odg->add_passive_enemy(0, 3, 120));
+	DemoEnemies::polka_switch_enemy(level, 5, 127, odg);
+	DemoEnemies::trap(0, 5, 136, odg);
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
@@ -33,12 +35,13 @@ void level3(OneDimensionalGame* odg, int level = 2) {
 	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
 
 	odg->add_rush_enemy(level);
+	// odg->add_lift_enemy(level);
 }
 
 void OneDimensionalGame::create_standard_story() {
-	level1(this);
-	level2(this);
-	level3(this);
+	// level1(this);
+	level2(this, 0);
+	// level3(this);
 }
 
 
@@ -61,10 +64,10 @@ void DemoEnemies::colourful_blue(PassiveEnemy *p) {
 }
 
 void DemoEnemies::colourful_contrast(PassiveEnemy *p) {
-	p->add_scheme('m', 60, false);
-	p->add_scheme('a', 60, false);
-	p->add_scheme('c', 60, false);
-	p->add_scheme('G', 180, true);
+	p->add_scheme('M', 60, true);
+	p->add_scheme('a', 60, true);
+	p->add_scheme('c', 60, true);
+	p->add_scheme('G', 200, false);
 }
 
 void DemoEnemies::disguise(PassiveEnemy *p, char background) {
@@ -83,9 +86,12 @@ void DemoEnemies::reverse_lift(int level, int size, int location,
 
 void DemoEnemies::lift(int level, int size, int location, 
 						int speed, OneDimensionalGame* odg) {
+
+	// PassiveEnemy* red = odg->add_passive_enemy(level, 1, location+i);
+	// red->add_scheme('R', 50, true);
+
 	for (int i = 0; i < size; i++) {
 		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
-		p->add_scheme('R', size*speed - i*speed, true);
 		p->add_scheme('G', size*speed + i*speed, false);
 	}
 }
@@ -111,4 +117,29 @@ void DemoEnemies::trap(int level, int size, int location,
 void DemoEnemies::lock(LockedEnemy *l) {
 	l->add_scheme('W', 60, true);
 	l->add_scheme('B', 60, false);
+}
+
+int busy = 0;
+void DemoEnemies::stoplight_enemy(PassiveEnemy *p) {
+	p->add_scheme('R', 100, true);
+	p->add_scheme('Y', 200, busy == true ? busy-- : busy++); //add real YELLOW
+	p->add_scheme('G', 200, false);  
+}
+
+void DemoEnemies::polka_switch_enemy(int level, int size, int location, OneDimensionalGame* odg) {
+	if (size % 2 == 0) size++;  //size should be an odd number
+	bool sw = false;
+
+	for (int i = 0; i < size; i++) {
+		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
+		if (!sw) {
+			sw = true;
+			p->add_scheme('g', 300, false);
+			p->add_scheme('c', 300, false);
+		} else {
+			sw = false;
+			p->add_scheme('c', 300, false);
+			p->add_scheme('R', 300, true);	
+		}
+	}
 }

@@ -91,7 +91,7 @@ void OneDimensionalGame::position_player(char direction) {
 	case 'L': //selects through items from left
 		player.hover_item++;
 
-		if (player.hover_item > player.items)
+		if (player.hover_item > player.items && (player.items))
 			player.hover_item = 1;
 		break;
 	case 'u':
