@@ -20,7 +20,7 @@ enum color : uint32_t {
 	BLUE = ((uint32_t)0 << 24) | ((uint32_t)0 << 16) | ((uint32_t)0 << 8) | 255,
 	GREEN = ((uint32_t)0 << 24) | ((uint32_t)0 << 16) | ((uint32_t)255 << 8) | 0,
 
-	PURPLE = ((uint32_t)109 << 24) | ((uint32_t)2 << 16) | ((uint32_t)0 << 8) | 67,
+	PURPLE = ((uint32_t)50 << 24) | ((uint32_t)2 << 16) | ((uint32_t)0 << 8) | 67,
 	PLAYER = ((uint32_t)109 << 24) | ((uint32_t)2 << 16) | ((uint32_t)0 << 8) | 67,
 
 	//RGBW(0, 0, 0, 255)

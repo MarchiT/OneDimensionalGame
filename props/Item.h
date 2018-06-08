@@ -9,7 +9,7 @@ public:
         : Prop(location, 1, map)
     {
         add_scheme('Z', 30, true);
-        add_scheme('W', 30, true);
+        add_scheme('M', 30, true);
     }
 
     void collision(Player& player) {

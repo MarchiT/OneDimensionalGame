@@ -115,7 +115,7 @@ void DemoEnemies::trap(int level, int size, int location,
 }
 
 void DemoEnemies::lock(LockedEnemy *l) {
-	l->add_scheme('W', 60, true);
+	l->add_scheme('M', 60, true);
 	l->add_scheme('B', 60, false);
 }
 

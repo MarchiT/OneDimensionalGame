@@ -187,8 +187,8 @@ void OneDimensionalGame::add_props(int lvl, int size, int location) {
 	
 	PassiveEnemy* p = new PassiveEnemy(location, size, levels[lvl].map);
 	
-	p->add_scheme('b', 70, false);
-	p->add_scheme('B', 70, true);
+	p->add_scheme('G', 100, false);
+	p->add_scheme('R', 100, true);
 
 	levels[lvl].props.push_back(p);
 }
