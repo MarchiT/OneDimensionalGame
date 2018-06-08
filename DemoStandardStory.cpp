@@ -3,47 +3,39 @@
 
 //add this to DemoStandardStory.h, and the enemies to DemoEnemies.cpp, ODG maybe back to original cpp class, maybe new file
 void level1(OneDimensionalGame* odg, int level = 0) {
-    odg->add_level(StandardMaps::MAP_BLANK, 70);
+    odg->add_level(StandardMaps::MAP_TEST);
 
     DemoEnemies::basic_short(odg->add_passive_enemy(0, 2, 10));
     DemoEnemies::basic_long(odg->add_passive_enemy(0, 4, 15));
 
-	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 21));
-	DemoEnemies::colourful_blue(odg->add_passive_enemy(0, 3, 25));
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 25));
+	DemoEnemies::colourful_blue(odg->add_passive_enemy(0, 3, 30));
 
-	DemoEnemies::reverse_lift(0, 25, 33, 30, odg);
-	DemoEnemies::trap(0, 5, 62, odg);
+	DemoEnemies::reverse_lift(0, 25, 38, 30, odg);
+	DemoEnemies::trap(0, 5, 68, odg);
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
-	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
+	odg->add_level(StandardMaps::MAP_BLANK, 83);
 
-	odg->add_item(level, 10);
+	odg->add_item(level, 15);
 
-	// odg->add_rush_enemy(level);
-
-    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 30));
     DemoEnemies::lock(odg->add_locked_enemy(level, 5, 40));
-    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 50));
+    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 52));
+    DemoEnemies::lock(odg->add_locked_enemy(level, 5, 64));
+	
 }
 
+void level3(OneDimensionalGame* odg, int level = 2) {
+	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
+
+	odg->add_rush_enemy(level);
+}
 
 void OneDimensionalGame::create_standard_story() {
-    // add_level(70, StandardMaps::MAP_BLANK);
-
-    // DemoEnemies::basic_short(add_passive_enemy(0, 2, 10));
-    // DemoEnemies::basic_long(add_passive_enemy(0, 4, 15));
-
-	// DemoEnemies::disguise(add_passive_enemy(0, 2, 21));
-	// DemoEnemies::colourful_blue(add_passive_enemy(0, 3, 25));
-
-	// DemoEnemies::reverse_lift(0, 25, 33, 30, this);
-	// DemoEnemies::trap(0, 5, 62, this);
-
-	// add_level(5, StandardMaps::MAP_BLUE_TO_GREEN);
-
 	level1(this);
 	level2(this);
+	level3(this);
 }
 
 
@@ -67,7 +59,7 @@ void DemoEnemies::colourful_blue(PassiveEnemy *p) {
 
 void DemoEnemies::disguise(PassiveEnemy *p) {
 	p->add_scheme('c', 80, true);
-	p->add_scheme('Z', 120, false);  
+	p->add_scheme('g', 120, false);  
 }
 
 void DemoEnemies::reverse_lift(int level, int size, int location, 

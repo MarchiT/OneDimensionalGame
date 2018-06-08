@@ -11,10 +11,10 @@
 #include "Player.h"
 #include "Level.h"
 #include "Prop.h"
-#include "PassiveEnemy.h"
-#include "LockedEnemy.h"
-#include "RushEnemy.h"
-#include "Item.h"
+#include "props/PassiveEnemy.h"
+#include "props/LockedEnemy.h"
+#include "props/RushEnemy.h"
+#include "props/Item.h"
 
 #include "StandardMaps.h"
 
