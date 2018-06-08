@@ -52,6 +52,7 @@ void Level::cast_map_to_field() {
 		case 'f': field[i] = MIDNIGHT_BLUE; break;
 		case 'h': field[i] = ROYAL_BLUE; break;
 		case 'i': field[i] = POWDER_BLUE; break;
+		case 'y': field[i] = DARK_BLUE; break;
 
 		default:  field[i] = OFF; break;
 		}

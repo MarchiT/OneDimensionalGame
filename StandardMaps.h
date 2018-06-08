@@ -12,6 +12,8 @@ struct StandardMaps
 
 	static char MAP_TEST[NUM_LEDS];
 
+	static char MAP_SELECTION[NUM_LEDS];
+
 	static char MAP_GREEN_PINK[NUM_LEDS];
 
 	static char MAP_BLUE_TO_GREEN[NUM_LEDS];

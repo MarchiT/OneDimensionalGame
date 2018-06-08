@@ -3,21 +3,20 @@
 
 //level, size, location, [speed/char], [odg]
 void level1(OneDimensionalGame* odg, int level = 0) {
-    odg->add_level(StandardMaps::MAP_BLANK);
+    odg->add_level(StandardMaps::MAP_TEST);
 
     DemoEnemies::basic_short(odg->add_passive_enemy(0, 2, 15));
     DemoEnemies::basic_long(odg->add_passive_enemy(0, 4, 23));
 
 	DemoEnemies::colourful_blue(odg->add_passive_enemy(0, 3, 43));
 	DemoEnemies::colourful_contrast(odg->add_passive_enemy(0, 3, 50));
-	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 60), StandardMaps::MAP_BLANK[60]);
-	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 65), StandardMaps::MAP_BLANK[65]);
-	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 70), StandardMaps::MAP_BLANK[70]);
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 60), StandardMaps::MAP_TEST[60]);
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 65), StandardMaps::MAP_TEST[65]);
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 70), StandardMaps::MAP_TEST[70]);
 
 	DemoEnemies::reverse_lift(0, 25, 87, 30, odg);
-	DemoEnemies::stoplight_enemy(odg->add_passive_enemy(0, 3, 120));
-	DemoEnemies::polka_switch_enemy(level, 5, 127, odg);
-	DemoEnemies::trap(0, 5, 136, odg);
+	DemoEnemies::polka_switch_enemy(level, 5, 122, odg);
+	DemoEnemies::trap(0, 5, 132, odg);
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
@@ -28,20 +27,18 @@ void level2(OneDimensionalGame* odg, int level = 1) {
     DemoEnemies::lock(odg->add_locked_enemy(level, 5, 40));
     DemoEnemies::lock(odg->add_locked_enemy(level, 5, 52));
     DemoEnemies::lock(odg->add_locked_enemy(level, 5, 64));
-	
 }
 
 void level3(OneDimensionalGame* odg, int level = 2) {
 	odg->add_level(StandardMaps::MAP_BLUE_TO_GREEN);
 
 	odg->add_rush_enemy(level);
-	// odg->add_lift_enemy(level);
 }
 
 void OneDimensionalGame::create_standard_story() {
-	// level1(this);
-	level2(this, 0);
-	// level3(this);
+	level1(this);
+	level2(this);
+	level3(this);
 }
 
 
@@ -79,7 +76,7 @@ void DemoEnemies::reverse_lift(int level, int size, int location,
 						int speed, OneDimensionalGame* odg) {
 	for (int i = 0; i < size; i++) {
 		PassiveEnemy *p = odg->add_passive_enemy(level, 1, location+i);
-		p->add_scheme('G', size*speed + i*speed, false);
+		p->add_scheme('e', size*speed + i*speed, false);
 		p->add_scheme('R', size*speed - i*speed, true);
 	}
 }

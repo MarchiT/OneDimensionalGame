@@ -4,7 +4,7 @@
 
 #define PIN 6
 #define NUM_LEDS 144//268
-#define BRIGHTNESS 20
+#define BRIGHTNESS 80
 
 #define SW 13
 

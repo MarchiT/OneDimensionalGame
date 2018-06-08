@@ -26,8 +26,10 @@ enum color : uint32_t {
 	//RGBW(0, 0, 0, 255)
 	YELLOW = ((uint32_t)255 << 24) | ((uint32_t)20 << 16) | ((uint32_t)70 << 8) | 0,
 
-	DIM = ((uint32_t)30 << 24) | ((uint32_t)0 << 16) | ((uint32_t)0 << 8) | 0,
+	DIM = ((uint32_t)15 << 24) | ((uint32_t)0 << 16) | ((uint32_t)0 << 8) | 10,
 
+	// RGBW(0, 0, 31, 40)
+	DARK_BLUE = ((uint32_t)5 << 24) | ((uint32_t)0 << 16) | ((uint32_t)0 << 8) | 10,
 	// RGBW(0, 0, 86, 25)
 	MIDNIGHT_BLUE = ((uint32_t)25 << 24) | ((uint32_t)0 << 16) | ((uint32_t)0 << 8) | 86,
 	// RGBW(0, 40, 190, 65)
