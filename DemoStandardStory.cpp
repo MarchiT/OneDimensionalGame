@@ -1,18 +1,21 @@
 #include "OneDimensionalGame.h"
 #include "DemoEnemies.h"
 
-//add this to DemoStandardStory.h, and the enemies to DemoEnemies.cpp, ODG maybe back to original cpp class, maybe new file
+//level, size, location, [speed/char], [odg]
 void level1(OneDimensionalGame* odg, int level = 0) {
-    odg->add_level(StandardMaps::MAP_TEST);
+    odg->add_level(StandardMaps::MAP_BLANK);
 
-    DemoEnemies::basic_short(odg->add_passive_enemy(0, 2, 10));
-    DemoEnemies::basic_long(odg->add_passive_enemy(0, 4, 15));
+    DemoEnemies::basic_short(odg->add_passive_enemy(0, 2, 15));
+    DemoEnemies::basic_long(odg->add_passive_enemy(0, 4, 23));
 
-	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 25));
-	DemoEnemies::colourful_blue(odg->add_passive_enemy(0, 3, 30));
+	DemoEnemies::colourful_blue(odg->add_passive_enemy(0, 3, 43));
+	DemoEnemies::colourful_contrast(odg->add_passive_enemy(0, 3, 50));
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 60), StandardMaps::MAP_BLANK[60]);
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 65), StandardMaps::MAP_BLANK[65]);
+	DemoEnemies::disguise(odg->add_passive_enemy(0, 2, 70), StandardMaps::MAP_BLANK[70]);
 
-	DemoEnemies::reverse_lift(0, 25, 38, 30, odg);
-	DemoEnemies::trap(0, 5, 68, odg);
+	DemoEnemies::reverse_lift(0, 25, 87, 30, odg);
+	// DemoEnemies::trap(0, 5, 90, odg);
 }
 
 void level2(OneDimensionalGame* odg, int level = 1) {
@@ -51,15 +54,22 @@ void DemoEnemies::basic_long(PassiveEnemy *p) {
 }
 
 void DemoEnemies::colourful_blue(PassiveEnemy *p) {
-	p->add_scheme('f', 60, false);
 	p->add_scheme('h', 60, false);
+	p->add_scheme('f', 60, false);
 	p->add_scheme('B', 60, false);
-	p->add_scheme('R', 60, true);  //MAKE RED MORE SHINY
+	p->add_scheme('R', 60, true);
 }
 
-void DemoEnemies::disguise(PassiveEnemy *p) {
+void DemoEnemies::colourful_contrast(PassiveEnemy *p) {
+	p->add_scheme('m', 60, false);
+	p->add_scheme('a', 60, false);
+	p->add_scheme('c', 60, false);
+	p->add_scheme('G', 180, true);
+}
+
+void DemoEnemies::disguise(PassiveEnemy *p, char background) {
 	p->add_scheme('c', 80, true);
-	p->add_scheme('g', 120, false);  
+	p->add_scheme(background, 120, false);  
 }
 
 void DemoEnemies::reverse_lift(int level, int size, int location, 
