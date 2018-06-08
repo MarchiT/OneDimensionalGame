@@ -12,19 +12,19 @@ struct Hitbox {
 
 struct Scheme {
 	char design;
-	int frequency;
+	int loops;
 	bool interact = false;
 
 	bool operator==(const Scheme& rhs) const {
 		return design == rhs.design
-				&& frequency == rhs.frequency
+				&& loops == rhs.loops
 				&& interact == rhs.interact;
     }
 };
 
 class Prop {
 private:
-	Scheme create_scheme(char design, int frequency, bool interact);
+	Scheme create_scheme(char design, int loops, bool interact);
 
 	void set_hitbox(int start, int end);
 
@@ -32,7 +32,7 @@ public:
 
 	Prop(int location, int size, char* map, int hitbox_start=0, int hitbox_end=0);
 	
-	void add_scheme(char design, int frequency, bool interact);
+	void add_scheme(char design, int loops, bool interact);
 	bool remove_schemes();
 	
 	virtual void draw();

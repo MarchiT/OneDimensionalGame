@@ -10,16 +10,16 @@ Prop::Prop(int location, int size, char* map, int hitbox_start, int hitbox_end)
 	set_hitbox(hitbox_start, hitbox_end);
 }
 
-Scheme Prop::create_scheme(char design, int frequency, bool interact) {
+Scheme Prop::create_scheme(char design, int loops, bool interact) {
 	Scheme s;
 	s.design = design;
-	s.frequency = frequency;
+	s.loops = loops;
 	s.interact = interact;
 	return s;
 }
 
-void Prop::add_scheme(char design, int frequency, bool interact) {
-	schemes.push_back(create_scheme(design, frequency, interact));
+void Prop::add_scheme(char design, int loops, bool interact) {
+	schemes.push_back(create_scheme(design, loops, interact));
 }
 
 bool Prop::remove_schemes() {
@@ -39,7 +39,7 @@ void Prop::set_hitbox(int start, int end) {
 }
 
 void Prop::draw() {
-	if (++state < schemes[index].frequency) {
+	if (++state < schemes[index].loops) {
 		for (int i = location - 1; i < location + size - 1; i++) {
 			map[i] = schemes[index].design;
 		}
